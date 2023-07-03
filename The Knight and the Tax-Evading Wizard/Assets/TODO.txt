@@ -1,0 +1,106 @@
+
+IMPORTANT THINGS TO REMEMEBER IN GENERAL:
+	Firstly, make sure that once you start making something, finish it COMPLETELY. If possible make a script so that it need no additions or changes in the future. This way, spaghetti code is avoided
+	Next, rememeber to design all of the scripts on mechanics with performance
+?? To Do ??
+
+
+?? In Progress ??
+
+Final Stages
+
+
+? Done ?
+- Dummy damage
+
+??? BUGS ???
+- Bullet flips around weirdly
+	- UPDATE: This is purely a performance issue. 
+		- (Probably) I think this because once OBS is opened, and recording is started, the problem occurs more frequently, with more lag
+	- Noted that if the bullets speed is increased, the issue becomes harder to replicate
+
+- Bullet does double damage
+	- This is not a case of the hitbox hitting twice (to my knowledge)
+- Weird Enemy Hitboxes
+	- The player is interacting with the enemy hitboxes very weirdly
+	- Seems to be caused due to the collision code in the PlayerContoller
+
+
+//NOTES
+
+GameObject bullet = objectPooling.GetObjectFromPool();
+            if (bullet != null)
+            {
+                bullet.transform.position = FirePoint.transform.position;
+            }
+
+_____________________________________________________________________________
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerCombat : MonoBehaviour
+{
+    private GameObject attackArea = default;
+    public GameObject FirePoint;
+    public GameObject ObjectPool;
+
+    [SerializeField] GameObject WizardBullet;
+
+    public bool attacking = false;
+    private float timeToAttack = 0.5f;
+    private float timer = 0f;
+
+    private float cooldown = 0.3f;
+    private float timer2 = 0f;
+
+    public Charactar charactar;
+    public ObjectPooling objectPooling;
+
+    public GameObject gameobj;
+
+    public int indexList;
+    void Start()
+    {
+        attackArea = transform.GetChild(0).gameObject;  
+        Charactar charactar = gameObject.GetComponent<Charactar>();
+        ObjectPooling objectPooling = ObjectPool.GetComponent<ObjectPooling>();   
+    }
+    void Update()
+    {
+        
+        if(Input.GetKeyDown("k")){
+            Attack();
+        }
+
+        if (attacking) 
+        {
+            timer += Time.deltaTime;
+            if (timer >= timeToAttack)
+            {
+                timer = 0f;
+                attacking = false;
+                attackArea.SetActive(attacking);
+                timer2 += Time.deltaTime;
+                if (timer2 >= cooldown) {
+                    timer2 = 0f;
+                }
+            }
+        } 
+    }
+    private void Attack(){
+        attacking = true;
+        if (charactar.character)
+        {
+            attackArea.SetActive(attacking);
+        }
+        else {
+            GameObject bullet = objectPooling.GetObjectFromPool();
+            if (bullet != null)
+            {
+                bullet.transform.position = FirePoint.transform.position;
+            }
+            
+        }
+    }
+}
