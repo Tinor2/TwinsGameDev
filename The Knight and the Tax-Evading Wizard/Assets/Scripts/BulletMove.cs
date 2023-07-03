@@ -23,14 +23,16 @@ public class BulletMove : MonoBehaviour
     {
         //Checking what direction to face
         if (gameObject.transform.rotation == Quaternion.Euler(0,180,0)) {
-            fspeed = Mathf.Abs(speed);
+            transform.position += new Vector3(Mathf.Abs(speed * Time.deltaTime), 0, 0);
+            Debug.Log("true");
         }
         if (gameObject.transform.rotation == Quaternion.Euler(0, 0, 0))
         {
-            fspeed = speed;
+            transform.position += new Vector3(Mathf.Abs(speed * Time.deltaTime) * -1, 0, 0);
+            Debug.Log("false");
         }
         //Updating transform of the bullet by a certain value (determined by the float speed)
-        transform.position += new Vector3(fspeed, 0, 0);
+        
     }
     //Checking colison
     

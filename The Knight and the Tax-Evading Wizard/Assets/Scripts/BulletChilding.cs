@@ -27,31 +27,32 @@ public class BulletChilding : MonoBehaviour
     }
     void Update()
     {
-        if (playerCombatScript.attacking) {
-            for (int i = 0; i < objectPooling.poolSize; i++)
+        for (int i = 0; i < objectPooling.poolSize; i++)
+        {
+            prefabinlist = objectPooling.objectPoollist[i];
+            if (!prefabinlist.activeSelf)
             {
-                prefabinlist = objectPooling.objectPoollist[i];
-                if (!prefabinlist.activeSelf)
+                currentPrefabInUse = prefabinlist;
+                if (follow.isFlip)
                 {
-                    currentPrefabInUse = prefabinlist;
-                    BulletMove bulletMove = currentPrefabInUse.GetComponent<BulletMove>();
-                    if (follow.isFlip)
-                    {
-
-                        currentPrefabInUse.transform.rotation = Quaternion.Euler(0, 0, 0);
-                    }
-                    else
-                    {
-                        currentPrefabInUse.transform.rotation = Quaternion.Euler(0, 180, 0);
-                    }
+    
+                    currentPrefabInUse.transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
+                else
+                {
+                    currentPrefabInUse.transform.rotation = Quaternion.Euler(0, 180, 0);
+                }
+                while (playerCombatScript.attacking)
+                {
                     break;
                 }
-                else {
-                    currentPrefabInUse = objectPooling.objectPoollist[i];
-                }
             }
-            
-            
+            else {
+                currentPrefabInUse = objectPooling.objectPoollist[i];
+            }
+        }
+        
+        
         }
     }
-}
+

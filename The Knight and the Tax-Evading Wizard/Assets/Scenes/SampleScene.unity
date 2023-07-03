@@ -2408,12 +2408,12 @@ MonoBehaviour:
   _deAcceleration: 40
   _apexBonus: 2
   _fallClamp: -40
-  _minFallSpeed: 60
-  _maxFallSpeed: 90
-  _jumpHeight: 24
+  _minFallSpeed: 90
+  _maxFallSpeed: 110
+  _jumpHeight: 28
   _jumpApexThreshold: 10
   _coyoteTimeThreshold: 0.2
-  _jumpBuffer: 0.2
+  _jumpBuffer: 0.3
   _jumpEndEarlyGravityModifier: 3
   _freeColliderIterations: 10
 --- !u!212 &1905948259
