@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8030150836842533056, guid: 90919e5b8a7232c4da806e72aded7abb, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8030150836842533056, guid: 90919e5b8a7232c4da806e72aded7abb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -426,7 +426,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &437847523
 BoxCollider2D:
@@ -1504,7 +1504,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1011175569
 MonoBehaviour:
@@ -1714,7 +1714,7 @@ Transform:
   - {fileID: 221303616}
   - {fileID: 2142270218}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1579254216
 GameObject:
@@ -2377,7 +2377,7 @@ Transform:
   - {fileID: 2024828911}
   - {fileID: 494929684}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1905948257
 MonoBehaviour:
@@ -2403,9 +2403,9 @@ MonoBehaviour:
   _detectorCount: 8
   _detectionRayLength: 0.15
   _rayBuffer: 0.1
-  _acceleration: 40
+  _acceleration: 45
   _moveClamp: 10
-  _deAcceleration: 40
+  _deAcceleration: 45
   _apexBonus: 2
   _fallClamp: -40
   _minFallSpeed: 90
@@ -2413,7 +2413,7 @@ MonoBehaviour:
   _jumpHeight: 28
   _jumpApexThreshold: 10
   _coyoteTimeThreshold: 0.2
-  _jumpBuffer: 0.3
+  _jumpBuffer: 0.2
   _jumpEndEarlyGravityModifier: 3
   _freeColliderIterations: 10
 --- !u!212 &1905948259
@@ -2502,7 +2502,7 @@ MonoBehaviour:
   attacking: 0
   timeToAttack: 0.2
   attackReady: 0
-  cooldown: 0.5
+  cooldown: 0.22
   charactar: {fileID: 1905948260}
   objectPooling: {fileID: 683551199}
   gameobj: {fileID: 0}
@@ -2582,11 +2582,18 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 2.0005, y: 0.60089284}
-      - {x: 0.7491496, y: 0.00014650627}
-      - {x: 2.0005, y: -0.6007947}
+      - {x: 0.88621217, y: 0.30944934}
+      - {x: 0.52800554, y: 0.023073226}
+      - {x: 0.38764098, y: 0.45813406}
+      - {x: -0.16389436, y: 0.45576096}
+      - {x: -0.16012701, y: -0.46168455}
+      - {x: 0.43698132, y: -0.4542169}
+      - {x: 0.53542036, y: -0.020984367}
+      - {x: 0.93661207, y: -0.32887697}
+      - {x: 2.017604, y: -0.5557445}
       - {x: 2.0005, y: 0.19731832}
       - {x: 2.0005, y: 0.2024805}
-      - {x: 2.0005, y: 0.60089284}
+      - {x: 1.9923463, y: 0.5036743}
 --- !u!114 &2024828914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3041,7 +3048,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8030150836842533056, guid: 90919e5b8a7232c4da806e72aded7abb, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8030150836842533056, guid: 90919e5b8a7232c4da806e72aded7abb, type: 3}
       propertyPath: m_LocalPosition.x

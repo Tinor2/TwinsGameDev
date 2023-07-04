@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerCombat : MonoBehaviour
 {
     private GameObject attackArea = default;
@@ -33,7 +34,7 @@ public class PlayerCombat : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown("k")) {
+        if (Input.GetButtonDown("Fire1")) {
             if (attackReady)
             {
                 Attack();
