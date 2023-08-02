@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TarodevController;
 using UnityEngine;
 
 //The heak=lth system for an enemy
@@ -14,6 +15,7 @@ public class Health : MonoBehaviour
     [SerializeField] Vector3 DefaultRespawn;
 
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] Follow FirePointFollow;
 
     [SerializeField] bool Respawn;
 
@@ -22,8 +24,9 @@ public class Health : MonoBehaviour
     public void Damage(float damage) {
         oldHealth = health;
         health -= damage;
-        rb.AddForce(dummyKnock);
-        
+        if (FirePointFollow.isFlip) rb.AddForce(new Vector3(-dummyKnock.x, dummyKnock.y, 0));
+        else rb.AddForce(dummyKnock);
+
         if (health <= 0)
         {
             gameObject.SetActive(false); 
