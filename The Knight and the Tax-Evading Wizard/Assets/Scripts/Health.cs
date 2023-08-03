@@ -15,16 +15,22 @@ public class Health : MonoBehaviour
     [SerializeField] Vector3 DefaultRespawn;
 
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] Follow FirePointFollow;
+    
+    [SerializeField] GameObject PlayerInfo;
+    private PlayerConstants playerConstants;
 
     [SerializeField] bool Respawn;
 
     public float oldHealth;
 
+    void Start (){
+        rb = gameObject.GetComponent<Rigidbody2D>();
+        playerConstants= PlayerInfo.GetComponent<PlayerConstants>();
+    }
     public void Damage(float damage) {
         oldHealth = health;
         health -= damage;
-        if (FirePointFollow.isFlip) rb.AddForce(new Vector3(-dummyKnock.x, dummyKnock.y, 0));
+        if (playerConstants.pC_PlayerFlip) rb.AddForce(new Vector3(-dummyKnock.x, dummyKnock.y, 0));
         else rb.AddForce(dummyKnock);
 
         if (health <= 0)

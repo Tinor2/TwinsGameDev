@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewDataObject", menuName = "PlayerValues")]
-public class PlayerConstants : ScriptableObject
+public class PlayerConstants : MonoBehaviour
 {
     public GameObject FirePoint;
 
-    public bool PlayerFlip;
+    public bool pC_PlayerFlip;
+    private Follow firePointFollow;
     // Start is called before the first frame update
     void Start()
     {
-        
+        firePointFollow = FirePoint.GetComponent<Follow>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        Follow firePointFollow = FirePoint.GetComponent<Follow>();
-        PlayerFlip = firePointFollow.isFlip;
+        pC_PlayerFlip = firePointFollow.isFlip;
+        
     }
 }
