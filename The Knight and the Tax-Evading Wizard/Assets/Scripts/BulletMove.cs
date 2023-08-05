@@ -10,8 +10,6 @@ public class BulletMove : MonoBehaviour
     //Magnitude of speed of bullet movement
     [Tooltip("!!!!the SPEED variable MUST BE INPUTTED AS NEGATIVE!!!!")]
     public float speed;
-    //Velocity (includes direction) of bullet movement
-    private float fspeed;
 
     public bool bulletflip;
     

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Follow : MonoBehaviour
 {
     //Accessing player controller
-    public PlayerController playerController;
+    private PlayerController playerController;
     //Accessing player Gameobject 
     public GameObject player;
     //Do we want this object to flip around the player?
