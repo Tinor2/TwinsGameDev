@@ -6,7 +6,7 @@ using UnityEngine;
 //The heak=lth system for an enemy
 public class Health : MonoBehaviour
 {
-    public int defhealth;
+    public int defHealth;
     [SerializeField] float health;
 
     public Vector3 dummyKnock;
@@ -26,6 +26,7 @@ public class Health : MonoBehaviour
     void Start (){
         rb = gameObject.GetComponent<Rigidbody2D>();
         playerConstants= PlayerInfo.GetComponent<PlayerConstants>();
+        health = defHealth;
     }
     public void Damage(float damage) {
         oldHealth = health;
@@ -39,15 +40,15 @@ public class Health : MonoBehaviour
             transform.position = Banished;
         }
     }
-    public void EnRespawn() {
-        health = defhealth;
+    public void enemyRespawn() {
+        health = defHealth;
         transform.position = DefaultRespawn;
     }
     void Update()
     {
         if (Respawn == true)
         {
-            EnRespawn();
+            enemyRespawn();
             Respawn = false;
         }
     }

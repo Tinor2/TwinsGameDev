@@ -6,23 +6,22 @@ using UnityEngine.Pool;
 
 public class BulletChilding : MonoBehaviour
 {
-    public GameObject ObjectPool;
-    public ObjectPooling objectPooling;
+    
+    public GameObject ObjectPool; //Make a gameobject where I acsess the objectPooling script
+    private ObjectPooling objectPooling; //objectPooling script to be used
 
-    public GameObject player;
-    [SerializeField] PlayerCombat playerCombatScript;
+    public GameObject Player; //player Gameobject used to access the player combat script
+    private PlayerCombat playerCombatScript; // Player combat script variable
 
-    public Follow follow;
-
-    private GameObject prefabinlist;
+    private Follow follow;
+    [SerializeField] GameObject prefabinlist;
     public GameObject currentPrefabInUse;
-
 
 
     void Awake()
     {
         objectPooling = ObjectPool.GetComponent<ObjectPooling>();
-        PlayerCombat playerCombatScript = player.GetComponent<PlayerCombat>();    
+        playerCombatScript = Player.GetComponent<PlayerCombat>();    
         follow = gameObject.GetComponent<Follow>();
     }
     void Update()
@@ -35,7 +34,6 @@ public class BulletChilding : MonoBehaviour
                 currentPrefabInUse = prefabinlist;
                 if (follow.isFlip)
                 {
-    
                     currentPrefabInUse.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
                 else
