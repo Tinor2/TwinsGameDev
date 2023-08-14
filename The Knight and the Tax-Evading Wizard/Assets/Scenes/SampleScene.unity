@@ -314,6 +314,10 @@ PrefabInstance:
       value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 8030150836842533061, guid: 90919e5b8a7232c4da806e72aded7abb, type: 3}
+      propertyPath: defHealth
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8030150836842533061, guid: 90919e5b8a7232c4da806e72aded7abb, type: 3}
       propertyPath: defhealth
       value: 500
       objectReference: {fileID: 0}
@@ -995,7 +999,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.34315297, g: 0.3674614, b: 0.4056604, a: 0}
+  m_BackGroundColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2140,7 +2144,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 1}
+  m_Color: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4207,6 +4211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 1000
+  takeDamage: 0
+  damage: 0
 --- !u!1 &1907920532
 GameObject:
   m_ObjectHideFlags: 0
@@ -4303,13 +4309,14 @@ GameObject:
   - component: {fileID: 2024828914}
   - component: {fileID: 2024828912}
   - component: {fileID: 2024828916}
+  - component: {fileID: 2024828917}
   m_Layer: 0
   m_Name: attackArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2024828911
 Transform:
   m_ObjectHideFlags: 0
@@ -4530,6 +4537,21 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 1905948255}
   Damping: 0
+--- !u!114 &2024828917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024828910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
+    _objectReferences: []
 --- !u!1 &2061585513
 GameObject:
   m_ObjectHideFlags: 0
