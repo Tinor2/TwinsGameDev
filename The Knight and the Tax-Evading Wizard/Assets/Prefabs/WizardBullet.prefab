@@ -183,6 +183,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 40
+  r: 0.09
+  attackPoint: {fileID: 0}
+  enemies:
+    serializedVersion: 2
+    m_Bits: 0
+  playerCombat: {fileID: 0}
+  enemiesHit: []
 --- !u!114 &390751142164877673
 MonoBehaviour:
   m_ObjectHideFlags: 0
