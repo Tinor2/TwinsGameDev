@@ -21,9 +21,11 @@ public class AttackArea : MonoBehaviour
     }
     void Start(){
         // PlayerCombat playerCombat = player.GetComponent<PlayerCombat>();
+        if(gameObject.tag == "Bullet"){attackPoint = transform;}
+        
     }
     void Update()
-    {        
+    {
         Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(gameObject.transform.position, r,enemies);
         if (enemiesHit == null) return;               
         foreach(Collider2D enemy in enemiesHit){
