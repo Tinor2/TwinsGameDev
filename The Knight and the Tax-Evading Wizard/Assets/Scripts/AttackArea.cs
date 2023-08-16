@@ -1,9 +1,17 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
 >>>>>>> parent of e76f36d (Started fixing kinghts attackarea)
+=======
+
+using System.Data.SqlTypes;
+using System.Numerics;
+using Unity.VisualScripting;
+using UnityEditor.Rendering;
+>>>>>>> parent of 74e0994 (Tweaked a few settings)
 using UnityEngine;
 
 //This script manages the collsion detection created by Knight's sword
@@ -20,7 +28,7 @@ public class AttackArea : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        if (attackPoint == null) return;
+        if (attackPoint == null || !playerCombat.attacking) return;
         Gizmos.DrawWireSphere(attackPoint.position, r);
     }
     void Start(){
@@ -31,20 +39,20 @@ public class AttackArea : MonoBehaviour
     void Update()
     {
         Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(gameObject.transform.position, r,enemies);
-        if (enemiesHit == null) return;               
+        CheckDone = false;               
         foreach(Collider2D enemy in enemiesHit){
-            //Store that script into a variable
+             //Store that script into a variable
             Health health = enemy.gameObject.GetComponent<Health>();
             //Deal damage to the specific health script
             health.Damage(damage);
             Debug.Log(damage.ToString());
             //If this script is on a bullet then
             if (gameObject.tag == "Bullet") {
-            //Disable the bullet
+                //Disable the bullet
                 gameObject.SetActive(false);
+                }
             }
-            }
-
+        CheckDone = true;
     }      
     
 =======
