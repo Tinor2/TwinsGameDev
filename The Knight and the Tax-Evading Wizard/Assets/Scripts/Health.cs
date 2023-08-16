@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TarodevController;
 using UnityEngine;
 
 //The heak=lth system for an enemy

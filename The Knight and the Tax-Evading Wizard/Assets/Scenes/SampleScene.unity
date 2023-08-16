@@ -4300,7 +4300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2024828911
 Transform:
   m_ObjectHideFlags: 0
@@ -4469,7 +4469,7 @@ MonoBehaviour:
   FlipEnable: 0
   isFlip: 0
   xoffset: 0
-  offset: {x: 0.33, y: 0, z: 0}
+  offset: {x: -0.8, y: 0, z: 0}
   target: {fileID: 1905948255}
   Damping: 0
 --- !u!1 &2061585513
