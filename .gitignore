@@ -70,3 +70,7 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+The Knight and the Tax-Evading Wizard/Assets/Prefabs/WizardBullet.prefab
+The Knight and the Tax-Evading Wizard/Assets/Scenes/SampleScene.unity
+The Knight and the Tax-Evading Wizard/Assets/Scripts/AttackArea.cs
+The Knight and the Tax-Evading Wizard/Assets/Scripts/PlayerCombat.cs
