@@ -7,8 +7,6 @@ using UnityEditor.Rendering;
 >>>>>>> parent of e76f36d (Started fixing kinghts attackarea)
 =======
 
-using System.Data.SqlTypes;
-using System.Numerics;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
 >>>>>>> parent of 74e0994 (Tweaked a few settings)
@@ -24,6 +22,7 @@ public class AttackArea : MonoBehaviour
     [SerializeField] LayerMask enemies;
     [SerializeField] PlayerCombat playerCombat;
     
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     void OnDrawGizmosSelected()
@@ -55,6 +54,33 @@ public class AttackArea : MonoBehaviour
         CheckDone = true;
     }      
     
+=======
+    void Start(){
+        PlayerCombat playerCombat = player.GetComponent<PlayerCombat>();
+    }
+    void Update()
+    {
+        Debug.Log("Enabled");
+        //Store all enemies hit in a list
+        if (playerCombat.attacking){
+            Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), r,enemies);
+            if(enemiesHit != null){ 
+                for (int i = 0; i < enemiesHit.Length; i++){
+                    if(i>1) enemiesHit[i-1] = null;
+                    //Store that script into a variable
+                    Health health = enemiesHit[1].GetComponent<Health>();
+                    //Deal damage to the specific health script
+                    health.Damage(damage);
+                    Debug.Log(damage.ToString());
+                    //If this script is on a bullet then
+                    if (gameObject.tag == "Bullet") {
+                        //Disable the bullet
+                        gameObject.SetActive(false);
+                    }
+                }
+            }
+        }
+>>>>>>> parent of e76f36d (Started fixing kinghts attackarea)
 =======
     void Start(){
         PlayerCombat playerCombat = player.GetComponent<PlayerCombat>();

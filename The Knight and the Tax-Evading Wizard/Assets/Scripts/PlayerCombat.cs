@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    public GameObject attackArea = default;
+    private GameObject attackArea = default;
     public GameObject FirePoint;
     public GameObject ObjectPool;
     [SerializeField] GameObject WizardBullet;
@@ -20,41 +20,36 @@ public class PlayerCombat : MonoBehaviour
 
     public Charactar charactar;
     public ObjectPooling objectPooling;
-    public AttackArea attackAreaSc;
 
     public GameObject gameobj;
 
     public int indexList;
-
     void Start()
     {
         //Setting the sword's attack area as the first child of the player
         attackArea = transform.GetChild(0).gameObject;  
         // This is the charactar, checks whether active player is wizard or knight
         Charactar charactar = gameObject.GetComponent<Charactar>();
-        ObjectPooling objectPooling = ObjectPool.GetComponent<ObjectPooling>();  
-        AttackArea attackAreaSc = attackArea.GetComponent<AttackArea>(); 
+        ObjectPooling objectPooling = ObjectPool.GetComponent<ObjectPooling>();   
     }
     void Update()
     {
         if (Input.GetButtonDown("Fire1")) {
             if (attackReady)
             {
-                // insert animation
                 Attack();
             }
 
         }
         if (attacking) {
             timer += Time.deltaTime;
-            if (timer >= timeToAttack){
+            if (timer >= timeToAttack) {
                 attacking = false;
                 attackArea.SetActive(attacking);
                 timer = 0f;
                 attackReady = false;
             }
         }
-        
         if (!attackReady){
             timer2 += Time.deltaTime;
             if (timer2 >= cooldown)
