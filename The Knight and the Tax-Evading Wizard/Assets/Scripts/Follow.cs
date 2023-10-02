@@ -21,7 +21,7 @@ public class Follow : MonoBehaviour
     [SerializeField] Transform target; //the position of the target
     public float Damping; //Determines the "delay" of the movement
 
-    private Vector3 velocity = Vector3.zero;
+    [SerializeField] Vector3 velocity = Vector3.zero;
     void Awake()
     {
         playerController = player.GetComponent<PlayerController>();
