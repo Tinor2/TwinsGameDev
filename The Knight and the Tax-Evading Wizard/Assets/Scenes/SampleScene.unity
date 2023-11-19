@@ -1114,10 +1114,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p: {fileID: 1905948251}
-  offset: {x: 1.9171779, y: 1.5, z: -10}
+  offset: {x: 2.0000026, y: 1, z: -10}
   Damping: 0.09
   speedClamp: 100
-  lookClamp: 3.3
+  lookClamp: 2
   lookDamp: 0.5
   lookTime: 0.63
   cameraZoom: 7.68
@@ -4182,14 +4182,14 @@ MonoBehaviour:
   _detectorCount: 8
   _detectionRayLength: 0.15
   _rayBuffer: 0.1
-  _acceleration: 30
-  _moveClamp: 11.5
-  _deAcceleration: 30
+  _acceleration: 40
+  _moveClamp: 12.5
+  _deAcceleration: 45
   _apexBonus: 2
   _fallClamp: -45
   _minFallSpeed: 100.1
   _maxFallSpeed: 120
-  _jumpHeight: 28.5
+  _jumpHeight: 29
   _jumpApexThreshold: 10
   _coyoteTimeThreshold: 0.2
   _jumpBuffer: 0.2

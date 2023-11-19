@@ -21,6 +21,8 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField] float cameraZoom;
 
+
+    [SerializeField] float verticalThreshold;
     void Start()
     {
         pC = p.GetComponent<PlayerController>();
@@ -30,6 +32,7 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Mathf.Abs(p.transform.position.y - transform.position.y) > verticalThreshold){}
         cameraComponent.orthographicSize = cameraZoom;
         Vector3 movemposition = p.transform.position + offset; 
         transform.position = Vector3.SmoothDamp(transform.position, movemposition, ref zeroV, Damping, speedClamp);
