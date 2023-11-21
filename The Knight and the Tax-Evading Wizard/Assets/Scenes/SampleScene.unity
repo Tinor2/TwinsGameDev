@@ -1114,13 +1114,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p: {fileID: 1905948251}
-  offset: {x: 2.0000026, y: 1, z: -10}
-  Damping: 0.09
+  offset: {x: 0, y: 0, z: 10}
+  DampingX: 0.22
+  DampingY: 0.17
   speedClamp: 100
-  lookClamp: 2
+  lookClamp: 3
   lookDamp: 0.5
   lookTime: 0.63
   cameraZoom: 7.68
+  channelThresh: 7
+  changeY: 0
 --- !u!1 &533058422
 GameObject:
   m_ObjectHideFlags: 0
@@ -4179,9 +4182,9 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  _detectorCount: 8
-  _detectionRayLength: 0.15
-  _rayBuffer: 0.1
+  _detectorCount: 12
+  _detectionRayLength: 0.1
+  _rayBuffer: 0.11
   _acceleration: 40
   _moveClamp: 12.5
   _deAcceleration: 45
@@ -4433,7 +4436,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024828910}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
