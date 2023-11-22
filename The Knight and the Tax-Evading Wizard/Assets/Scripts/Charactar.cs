@@ -8,8 +8,8 @@ public class Charactar : MonoBehaviour
     public bool character;
     [SerializeField] SpriteRenderer sp;
 
-    [SerializeField] Color knightColor;
-    [SerializeField] Color wizardColor;
+    public Color knightColor;
+    public Color wizardColor;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +26,7 @@ public class Charactar : MonoBehaviour
         }
         
 
-        if (character == true) //Player is now knight
+        if (character) //Player is now knight
         {
             sp.color = knightColor;
         }

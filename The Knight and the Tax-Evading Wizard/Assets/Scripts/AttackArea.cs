@@ -7,6 +7,7 @@ using System.Linq;
 
 public class AttackArea : MonoBehaviour
 {
+    
     public int damage;
     public float r;
     public Transform attackPoint;

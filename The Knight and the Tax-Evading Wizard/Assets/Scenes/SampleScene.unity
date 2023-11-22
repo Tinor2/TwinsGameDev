@@ -610,6 +610,7 @@ GameObject:
   - component: {fileID: 437847521}
   - component: {fileID: 437847523}
   - component: {fileID: 437847520}
+  - component: {fileID: 437847524}
   m_Layer: 3
   m_Name: Ghost
   m_TagString: Untagged
@@ -749,6 +750,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &437847524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437847519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b13989edc8f8e44c98b1bf4c0a50409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &494929683
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,6 +1134,7 @@ MonoBehaviour:
   lookDamp: 0.5
   lookTime: 0.63
   cameraZoom: 7.68
+  verticalThreshold: 0
 --- !u!1 &533058422
 GameObject:
   m_ObjectHideFlags: 0
