@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.Pool;
 
 public class BulletChilding : MonoBehaviour
-{
+{ 
+
     
     public GameObject ObjectPool; //Make a gameobject where I acsess the objectPooling script
     private ObjectPooling objectPooling; //objectPooling script to be used

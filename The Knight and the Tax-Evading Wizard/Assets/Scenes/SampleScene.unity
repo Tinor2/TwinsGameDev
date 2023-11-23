@@ -762,6 +762,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b13989edc8f8e44c98b1bf4c0a50409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1905948251}
+  sp: {fileID: 437847521}
+  knightColor: {r: 1, g: 0.3254902, b: 0.3254902, a: 0.78431374}
+  wizardColor: {r: 0.3254902, g: 0.62352943, b: 1, a: 0.78431374}
 --- !u!1 &494929683
 GameObject:
   m_ObjectHideFlags: 0
@@ -4184,7 +4188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfb23717f7dee14688bccda60b77b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sp: {fileID: 0}
+  sp: {fileID: 1905948259}
   Transform: {fileID: 1905948255}
   facingRight: 1
   _characterBounds:
