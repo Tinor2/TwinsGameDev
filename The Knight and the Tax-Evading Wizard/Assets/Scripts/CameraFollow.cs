@@ -28,10 +28,12 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] float channelThresh;
     [SerializeField] float changeY;
     private float targetY;
+
     void Start()
     {
         pC = p.GetComponent<PlayerController>();
         cameraComponent = gameObject.GetComponent<Camera>(); 
+
     }
 
     // Update is called once per frame
@@ -39,22 +41,30 @@ public class CameraFollow : MonoBehaviour
     {
       // Y channeling
       
-      changeY = p.transform.position.y - cameraYSnippet;
-      if (changeY != 0){
-        if(changeY > 0){ //if net y movement is positive
-          if (changeY >= channelThresh){ 
-            targetY = Mathf.Abs(transform.position.y + channelThresh/3);
-            cameraYSnippet = transform.position.y;
-          }
-        }
-        if(changeY < 0){
-          if (changeY <= channelThresh *1 ){ //if net y movement is negative
-            targetY = Mathf.Abs(transform.position.y - channelThresh/3) * -1;
-            cameraYSnippet = transform.position.y;
-            Debug.Log("Negative Change: "+ targetY);
-          }
-        } // Returns targetY value, where the camera should move next
+      // changeY = p.transform.position.y - cameraYSnippet;
+      // if (changeY != 0){
+      //   if(changeY > 0){ //if net y movement is positive
+      //     if (changeY >= channelThresh){ 
+      //       targetY = Mathf.Abs(transform.position.y + channelThresh/3);
+      //       cameraYSnippet = transform.position.y;
+      //     }
+      //   }
+      //   if(changeY < 0){
+      //     if (changeY <= channelThresh *1 ){ //if net y movement is negative
+      //       targetY = Mathf.Abs(transform.position.y - channelThresh/3) * -1;
+      //       cameraYSnippet = transform.position.y;
+
+      //     }
+      //   } // Returns targetY value, where the camera should move next
+      // }
+      float roundpPos = Mathf.RoundToInt(p.transform.position.y * 10f)/10f; 
+      //^^ Round y values to nearest 2 dp ^^
+      if (roundpPos % channelThresh > -1 && roundpPos % channelThresh < 1)
+      {
+        targetY = p.transform.position.y + channelThresh/3f;
       }
+
+
       cameraComponent.orthographicSize = cameraZoom;
       Vector3 movemposition = p.transform.position; 
       float newX = Mathf.SmoothDamp(transform.position.x, movemposition.x, ref zeroV.x, DampingX, speedClamp);

@@ -1026,7 +1026,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.6
+  orthographic size: 5.7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1114,15 +1114,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p: {fileID: 1905948251}
-  offset: {x: 0, y: 0, z: 10}
+  offset: {x: 2.9999382, y: 0, z: 10}
   DampingX: 0.22
-  DampingY: 0.17
+  DampingY: 0.25
   speedClamp: 100
   lookClamp: 3
   lookDamp: 0.5
   lookTime: 0.63
-  cameraZoom: 7.68
-  channelThresh: 7
+  cameraZoom: 5.7
+  channelThresh: 3
   changeY: 0
 --- !u!1 &533058422
 GameObject:
