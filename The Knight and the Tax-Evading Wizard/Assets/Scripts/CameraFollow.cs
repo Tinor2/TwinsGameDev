@@ -21,12 +21,15 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] float lookDamp;
     [SerializeField] float lookTime;
 
-    [SerializeField] float cameraZoom;
+    
 
     //Y channeling
-    private float cameraYSnippet;
-    [SerializeField] float channelThresh;
-    [SerializeField] float changeY;
+    [SerializeField] float cameraHeight;
+    private float boundsA;
+    private float boundsB;
+    public float tolerance;
+    private float tolA;
+    private float tolB;
     private float targetY;
 
     void Start()
@@ -39,37 +42,24 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      cameraComponent.orthographicSize = cameraHeight;
       // Y channeling
-      
-      // changeY = p.transform.position.y - cameraYSnippet;
-      // if (changeY != 0){
-      //   if(changeY > 0){ //if net y movement is positive
-      //     if (changeY >= channelThresh){ 
-      //       targetY = Mathf.Abs(transform.position.y + channelThresh/3);
-      //       cameraYSnippet = transform.position.y;
-      //     }
-      //   }
-      //   if(changeY < 0){
-      //     if (changeY <= channelThresh *1 ){ //if net y movement is negative
-      //       targetY = Mathf.Abs(transform.position.y - channelThresh/3) * -1;
-      //       cameraYSnippet = transform.position.y;
+      boundsA = transform.position.y + cameraHeight;
+      boundsB = transform.position.y - cameraHeight;
 
-      //     }
-      //   } // Returns targetY value, where the camera should move next
-      // }
-      float roundpPos = Mathf.RoundToInt(p.transform.position.y * 10f)/10f; 
-      //^^ Round y values to nearest 2 dp ^^
-      if (roundpPos % channelThresh > -1 && roundpPos % channelThresh < 1)
-      {
-        targetY = p.transform.position.y + channelThresh/3f;
+      tolA = boundsA - (cameraHeight - tolerance/2);
+      tolB = boundsB + (cameraHeight - tolerance/2);
+
+      if(p.transform.position.y > tolA || p.transform.position.y < tolB){
+        targetY = p.transform.position.y;
       }
 
+      // Once the player moves to far up, moves the camera back to the player
 
-      cameraComponent.orthographicSize = cameraZoom;
-      Vector3 movemposition = p.transform.position; 
+      Vector3 movemposition = p.transform.position + offset; 
       float newX = Mathf.SmoothDamp(transform.position.x, movemposition.x, ref zeroV.x, DampingX, speedClamp);
-      float newY = Mathf.SmoothDamp(transform.position.y, targetY, ref zeroV.y, DampingY, speedClamp);
-      transform.position = new Vector3(newX, newY, -10f);
+      float newY = Mathf.SmoothDamp(transform.position.y, targetY + offset.y, ref zeroV.y, DampingY, speedClamp);
+      transform.position = new Vector3(newX, newY, 0);
       if (pC.facingRight){
         offset.x = Mathf.SmoothDamp(offset.x, lookClamp, ref zeroF,lookTime);
       }  
