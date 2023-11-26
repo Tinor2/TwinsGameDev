@@ -59,7 +59,7 @@ public class CameraFollow : MonoBehaviour
       Vector3 movemposition = p.transform.position + offset; 
       float newX = Mathf.SmoothDamp(transform.position.x, movemposition.x, ref zeroV.x, DampingX, speedClamp);
       float newY = Mathf.SmoothDamp(transform.position.y, targetY + offset.y, ref zeroV.y, DampingY, speedClamp);
-      transform.position = new Vector3(newX, newY, 0);
+      transform.position = new Vector3(newX, newY, 0 - offset.z);
       if (pC.facingRight){
         offset.x = Mathf.SmoothDamp(offset.x, lookClamp, ref zeroF,lookTime);
       }  
