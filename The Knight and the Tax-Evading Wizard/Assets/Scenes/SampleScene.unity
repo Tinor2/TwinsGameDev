@@ -1114,15 +1114,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p: {fileID: 1905948251}
-  offset: {x: 2.9999382, y: 0, z: 1}
-  DampingX: 0.22
-  DampingY: 0.25
+  offset: {x: -2.999433, y: 0, z: 1}
+  DampingX: 0.2
+  DampingY: 0.23
   speedClamp: 100
   lookClamp: 3
   lookDamp: 0.5
   lookTime: 0.63
-  cameraHeight: 5.7
-  tolerance: 5
+  cameraHeight: 6.5
+  tolerance: 0
 --- !u!1 &533058422
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,8 +44,9 @@ public class CameraFollow : MonoBehaviour
     {
       cameraComponent.orthographicSize = cameraHeight;
       // Y channeling
-      boundsA = transform.position.y + cameraHeight;
-      boundsB = transform.position.y - cameraHeight;
+      float noOffset = transform.position.y - offset.y;
+      boundsA = noOffset + cameraHeight;
+      boundsB = noOffset - cameraHeight;
 
       tolA = boundsA - (cameraHeight - tolerance/2);
       tolB = boundsB + (cameraHeight - tolerance/2);
@@ -66,7 +67,5 @@ public class CameraFollow : MonoBehaviour
      else{
         offset.x = Mathf.SmoothDamp(offset.x, lookClamp * -1, ref zeroF,lookTime);
       }
-      
     }
-
 }
