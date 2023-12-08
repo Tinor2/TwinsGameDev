@@ -44,9 +44,9 @@ public class CameraFollow : MonoBehaviour
     {
       cameraComponent.orthographicSize = cameraHeight;
       // Y channeling
-      float noOffset = transform.position.y - offset.y;
-      boundsA = noOffset + cameraHeight;
-      boundsB = noOffset - cameraHeight;
+      
+      boundsA = transform.position.y + cameraHeight - offset.y; //Update the bounds to include the decreased y pos due to offset
+      boundsB = transform.position.y - cameraHeight + offset.y; // ^^                              increased                  ^^
 
       tolA = boundsA - (cameraHeight - tolerance/2);
       tolB = boundsB + (cameraHeight - tolerance/2);
