@@ -61,10 +61,6 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      NoChange:
-      startSpeed = Mathf.Pow(Mathf.Pow(baseSpeedClamp,-1f)+Mathf.Pow(slope,Mathf.Abs(0+tweenXOffset)),-1f)+ tweenYOffset;
-
-
       cameraComponent.orthographicSize = cameraHeight;
       // Y channeling
       
@@ -76,9 +72,6 @@ public class CameraFollow : MonoBehaviour
 
       if(p.transform.position.y > tolA || p.transform.position.y < tolB){
         targetY = p.transform.position.y;
-      }
-      else{
-        goto NoChange;
       }
       // Once the player moves to far up, moves the camera back to the player
       float distanceFromTarget = transform.position.y - targetY;
@@ -96,13 +89,13 @@ public class CameraFollow : MonoBehaviour
 
 
       Vector3 movemposition = p.transform.position + offset; 
-      float newX = Mathf.SmoothDamp(transform.position.x, movemposition.x, ref zeroV.x, DampingX, speedClamp);
-      float newY = Mathf.SmoothDamp(transform.position.y, targetY + offset.y, ref zeroV.y, DampingY, speedClamp);
+      float newX = Mathf.SmoothDamp(transform.position.x, movemposition.x, ref zeroV.x, DampingX, baseSpeedClamp);
+      float newY = Mathf.SmoothDamp(transform.position.y, targetY + offset.y, ref zeroV.y, DampingY, baseSpeedClamp);
       transform.position = new Vector3(newX,newY,-offset.z);
       if (pC.facingRight){
         offset.x = Mathf.SmoothDamp(offset.x, lookClamp, ref zeroF,lookTime);
       }  
-     else{
+      else{
         offset.x = Mathf.SmoothDamp(offset.x, lookClamp * -1, ref zeroF,lookTime);
       }
     }

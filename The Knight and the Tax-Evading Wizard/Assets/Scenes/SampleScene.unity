@@ -1114,15 +1114,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p: {fileID: 1905948251}
-  offset: {x: 2.9999926, y: 1.5, z: 1}
+  offset: {x: 2.9999926, y: 2.23, z: 1}
   DampingX: 0.2
   DampingY: 0.24
   lookClamp: 3
   lookDamp: 0.5
   lookTime: 0.63
-  cameraHeight: 6.5
-  tolerance: 8.75
-  baseSpeedClamp: 0
+  cameraHeight: 7.3
+  tolerance: 7
+  baseSpeedClamp: 20
   slope: 0.4
   tweenXOffset: 0
   tweenYOffset: 0
@@ -2527,7 +2527,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 987812905}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -49.54, y: 17.220001, z: 0}
+  m_LocalPosition: {x: -49.54, y: 14.82, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3024,7 +3024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!120 &1364113068
 LineRenderer:
   serializedVersion: 2
@@ -3179,6 +3179,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d8d099a197b714c9187ed8b0c86a95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resolution: 0
+  pointSpacing: 0
+  lr: {fileID: 0}
+  focalPoint: {x: 0, y: 0, z: 0}
+  focalWidth: 0
 --- !u!4 &1364113070
 Transform:
   m_ObjectHideFlags: 0
