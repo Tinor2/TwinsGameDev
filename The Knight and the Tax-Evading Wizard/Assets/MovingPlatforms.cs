@@ -52,16 +52,16 @@ public class MovingPlatforms : MonoBehaviour
 
    public void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("s");
+
         if (collision.gameObject.name == "Player")
         {
-            Debug.Log("se");
+
             collision.gameObject.transform.SetParent(transform);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("seee");
+
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.transform.SetParent(null);

@@ -8,7 +8,9 @@ using UnityEditor.Rendering;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
-{
+{ 
+    
+
     [Header("References")]
     private PlayerController pC;
     private Camera cameraComponent;
@@ -51,6 +53,9 @@ public class CameraFollow : MonoBehaviour
     public float startSpeed;
     
 
+    float cameraHeightstored;
+    Vector3 offsetStored;
+
     void Start()
     {
         pC = p.GetComponent<PlayerController>();
@@ -61,6 +66,8 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      cameraHeightstored = cameraHeight;
+      offsetStored = offset;
       cameraComponent.orthographicSize = cameraHeight;
       // Y channeling
       
@@ -98,5 +105,24 @@ public class CameraFollow : MonoBehaviour
       else{
         offset.x = Mathf.SmoothDamp(offset.x, lookClamp * -1, ref zeroF,lookTime);
       }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    { 
+
+        if (collision.gameObject.tag == "LargeArea")
+        {
+            Debug.Log("LargArea");
+            cameraHeight = 10.37f;
+            offset.y = 10.37f;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.tag == "LargeArea")
+        {
+            cameraHeight = cameraHeightstored;
+            offset.y = offsetStored.y;
+        }
     }
 }

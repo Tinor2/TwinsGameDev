@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Moving
+  - LargArea
   layers:
   - Default
   - TransparentFX
