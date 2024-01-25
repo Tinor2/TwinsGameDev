@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ namespace TarodevController {
     public class PlayerController : MonoBehaviour, IPlayerController {
         [SerializeField] SpriteRenderer sp;
         [SerializeField] Transform Transform;
+        
 
         public bool facingRight = true;
         
@@ -84,6 +86,7 @@ namespace TarodevController {
             };
             if (Input.JumpDown) {
                 _lastJumpPressed = Time.time;
+
             }
         }
 
@@ -183,6 +186,8 @@ namespace TarodevController {
         [SerializeField] private float _apexBonus = 2;
 
         private void CalculateWalk() {
+            
+            
             if (Input.X != 0) {
                 // Set horizontal move speed
                 _currentHorizontalSpeed += Input.X * _acceleration * Time.deltaTime;
