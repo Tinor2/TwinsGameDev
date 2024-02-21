@@ -33,10 +33,16 @@ namespace TarodevController {
         private Vector3 _lastPosition;
         private float _currentHorizontalSpeed, _currentVerticalSpeed;
 
+        [SerializeField] private UserInput userInput;
+        [SerializeField] private GameObject inputManager;
+
         // This is horrible, but for some reason colliders are not fully established when update starts...
         private bool _active;
         void Awake() => Invoke(nameof(Activate), 0.5f);
         void Activate() =>  _active = true;
+        void Start(){
+            userInput = inputManager.GetComponent<UserInput>(); 
+        }
         
         private void Update() {
             if(!_active) return;
@@ -80,9 +86,9 @@ namespace TarodevController {
         
         private void GatherInput() {
             Input = new FrameInput {
-                JumpDown = UnityEngine.Input.GetButtonDown("Jump"),
-                JumpUp = UnityEngine.Input.GetButtonUp("Jump"),
-                X = UnityEngine.Input.GetAxisRaw("Horizontal")
+                JumpDown = userInput.controls.Movement.Jump.WasPressedThisFrame(),
+                JumpUp = userInput.controls.Movement.Jump.WasReleasedThisFrame(),
+                X = userInput.moveInput.x
             };
             if (Input.JumpDown) {
                 _lastJumpPressed = Time.time;

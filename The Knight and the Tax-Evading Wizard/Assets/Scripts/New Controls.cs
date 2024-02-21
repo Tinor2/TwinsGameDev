@@ -215,10 +215,21 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9615673a-0147-45c6-9d03-d21cc9f45b80"",
-                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""87055371-2ac3-42f7-bf7a-f1e0885491bf"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -226,13 +237,13 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Jumping"",
-            ""id"": ""ecbb4be8-e634-4115-87f2-0c2dcb77fb43"",
+            ""name"": ""Attack"",
+            ""id"": ""efbd32bf-2a3b-4422-919c-d703e48e8e37"",
             ""actions"": [
                 {
-                    ""name"": ""Jump"",
+                    ""name"": ""Attack"",
                     ""type"": ""Button"",
-                    ""id"": ""f5b6e75b-bda0-431e-a88a-30611e69903b"",
+                    ""id"": ""f7927245-f546-4aaf-bf76-ca2fc24c88a5"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -242,12 +253,45 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""8816ae37-caf2-4b24-813b-b800896c6cb9"",
-                    ""path"": """",
+                    ""id"": ""34847fc7-9af2-4a86-a07d-0e5fe74f4708"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump"",
+                    ""groups"": ""Mouse"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""499e3d5a-0e2f-4261-80da-4aaccadf1f16"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fd9f3f5c-4292-4f4f-881b-ae1212dc5bd1"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e5c3282d-805d-46eb-b7e4-038bd9de616e"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -264,6 +308,11 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
             ""name"": ""Gamepad"",
             ""bindingGroup"": ""Gamepad"",
             ""devices"": []
+        },
+        {
+            ""name"": ""Mouse"",
+            ""bindingGroup"": ""Mouse"",
+            ""devices"": []
         }
     ]
 }");
@@ -271,9 +320,9 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
         m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
         m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
-        // Jumping
-        m_Jumping = asset.FindActionMap("Jumping", throwIfNotFound: true);
-        m_Jumping_Jump = m_Jumping.FindAction("Jump", throwIfNotFound: true);
+        // Attack
+        m_Attack = asset.FindActionMap("Attack", throwIfNotFound: true);
+        m_Attack_Attack = m_Attack.FindAction("Attack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -386,51 +435,51 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
     }
     public MovementActions @Movement => new MovementActions(this);
 
-    // Jumping
-    private readonly InputActionMap m_Jumping;
-    private List<IJumpingActions> m_JumpingActionsCallbackInterfaces = new List<IJumpingActions>();
-    private readonly InputAction m_Jumping_Jump;
-    public struct JumpingActions
+    // Attack
+    private readonly InputActionMap m_Attack;
+    private List<IAttackActions> m_AttackActionsCallbackInterfaces = new List<IAttackActions>();
+    private readonly InputAction m_Attack_Attack;
+    public struct AttackActions
     {
         private @NewControls m_Wrapper;
-        public JumpingActions(@NewControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Jump => m_Wrapper.m_Jumping_Jump;
-        public InputActionMap Get() { return m_Wrapper.m_Jumping; }
+        public AttackActions(@NewControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Attack => m_Wrapper.m_Attack_Attack;
+        public InputActionMap Get() { return m_Wrapper.m_Attack; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(JumpingActions set) { return set.Get(); }
-        public void AddCallbacks(IJumpingActions instance)
+        public static implicit operator InputActionMap(AttackActions set) { return set.Get(); }
+        public void AddCallbacks(IAttackActions instance)
         {
-            if (instance == null || m_Wrapper.m_JumpingActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_JumpingActionsCallbackInterfaces.Add(instance);
-            @Jump.started += instance.OnJump;
-            @Jump.performed += instance.OnJump;
-            @Jump.canceled += instance.OnJump;
+            if (instance == null || m_Wrapper.m_AttackActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_AttackActionsCallbackInterfaces.Add(instance);
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
         }
 
-        private void UnregisterCallbacks(IJumpingActions instance)
+        private void UnregisterCallbacks(IAttackActions instance)
         {
-            @Jump.started -= instance.OnJump;
-            @Jump.performed -= instance.OnJump;
-            @Jump.canceled -= instance.OnJump;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
         }
 
-        public void RemoveCallbacks(IJumpingActions instance)
+        public void RemoveCallbacks(IAttackActions instance)
         {
-            if (m_Wrapper.m_JumpingActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_AttackActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IJumpingActions instance)
+        public void SetCallbacks(IAttackActions instance)
         {
-            foreach (var item in m_Wrapper.m_JumpingActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_AttackActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_JumpingActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_AttackActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public JumpingActions @Jumping => new JumpingActions(this);
+    public AttackActions @Attack => new AttackActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -449,13 +498,22 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_GamepadSchemeIndex];
         }
     }
+    private int m_MouseSchemeIndex = -1;
+    public InputControlScheme MouseScheme
+    {
+        get
+        {
+            if (m_MouseSchemeIndex == -1) m_MouseSchemeIndex = asset.FindControlSchemeIndex("Mouse");
+            return asset.controlSchemes[m_MouseSchemeIndex];
+        }
+    }
     public interface IMovementActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
     }
-    public interface IJumpingActions
+    public interface IAttackActions
     {
-        void OnJump(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
     }
 }

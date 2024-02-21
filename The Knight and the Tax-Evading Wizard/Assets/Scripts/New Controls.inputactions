@@ -193,10 +193,21 @@
                 {
                     "name": "",
                     "id": "9615673a-0147-45c6-9d03-d21cc9f45b80",
-                    "path": "<Gamepad>/dpad/down",
+                    "path": "<Gamepad>/dpad/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "87055371-2ac3-42f7-bf7a-f1e0885491bf",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -204,13 +215,13 @@
             ]
         },
         {
-            "name": "Jumping",
-            "id": "ecbb4be8-e634-4115-87f2-0c2dcb77fb43",
+            "name": "Attack",
+            "id": "efbd32bf-2a3b-4422-919c-d703e48e8e37",
             "actions": [
                 {
-                    "name": "Jump",
+                    "name": "Attack",
                     "type": "Button",
-                    "id": "f5b6e75b-bda0-431e-a88a-30611e69903b",
+                    "id": "f7927245-f546-4aaf-bf76-ca2fc24c88a5",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -220,12 +231,45 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "8816ae37-caf2-4b24-813b-b800896c6cb9",
-                    "path": "",
+                    "id": "34847fc7-9af2-4a86-a07d-0e5fe74f4708",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Jump",
+                    "groups": "Mouse",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "499e3d5a-0e2f-4261-80da-4aaccadf1f16",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fd9f3f5c-4292-4f4f-881b-ae1212dc5bd1",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e5c3282d-805d-46eb-b7e4-038bd9de616e",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -241,6 +285,11 @@
         {
             "name": "Gamepad",
             "bindingGroup": "Gamepad",
+            "devices": []
+        },
+        {
+            "name": "Mouse",
+            "bindingGroup": "Mouse",
             "devices": []
         }
     ]

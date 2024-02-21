@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class test : MonoBehaviour
 {
-    private float moveInput;
+    private bool moveInput;
     public UserInput userInput;
     public GameObject inputManager;
     // Start is called before the first frame update
     void Start()
     {
-        userInput = inputManager.GetComponent<UserInput>(); 
+        // userInput = inputManager.GetComponent<UserInput>(); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(moveInput);
+        moveInput= userInput.controls.Movement.Jump.WasReleasedThisFrame();
+        if(moveInput){
+            Debug.Log(moveInput);
+        }
     }
 }
