@@ -37,7 +37,7 @@ public class PlayerAttack : MonoBehaviour
         if(userInput.controls.Attack.Attack.WasPressedThisFrame() && attackTimeCount >= cooldownAttack){
             attackTimeCount = 0f;
             isAttack = true;
-            Attack();
+            attackWhenReady(playerDamage);
         }
         isAttack = false;
         attackTimeCount += Time.deltaTime;
@@ -55,7 +55,7 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
-    public IEnumerator attackWhenReady(){
+    public IEnumerator attackWhenReady(float damage){
         isDamaging = true;
         while(isDamaging){ //Contents will run for as many frames as the condition is met
             hits = Physics2D.CircleCastAll(attackTransform.position, attackRange, transform.right, 0f, attackable);
@@ -64,7 +64,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 IDamageable iDamageable = hits[i].collider.gameObject.GetComponent<IDamageable>();
                 if(iDamageable != null){
-                    iDamageable.Damage(playerDamage);
+                    iDamageable.Damage(damage);
                     
                 }
             }
